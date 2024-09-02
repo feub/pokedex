@@ -1,9 +1,10 @@
 
-export default function NavBar({ handlePrevious, handleNext }) {
+export default function NavBar({ pokemonList, handleClick }) {
     return (
         <div>
-            <button onClick={handlePrevious}>Précédent</button>
-            <button onClick={handleNext}>Suivant</button>
+            {pokemonList.map((pokemon, index) => (
+                <button onClick={() => handleClick(index)} key={index}>{pokemon.name}</button>
+            ))}
         </div>
     );
 }
